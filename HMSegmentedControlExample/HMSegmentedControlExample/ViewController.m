@@ -89,6 +89,9 @@
     self.segmentedControl4.selectionIndicatorColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1];
     self.segmentedControl4.selectionStyle = HMSegmentedControlSelectionStyleBox;
     self.segmentedControl4.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationUp;
+    self.segmentedControl4.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleFull;
+    self.segmentedControl4.navigationEnabled = YES;
+    
     self.segmentedControl4.tag = 3;
     
     __weak typeof(self) weakSelf = self;

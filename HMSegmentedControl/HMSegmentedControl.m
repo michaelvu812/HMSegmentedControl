@@ -136,13 +136,11 @@
     
     self.leftArrow = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.leftArrow setImage:[UIImage imageNamed:@"leftArrow"] forState:UIControlStateNormal];
-    self.leftArrow.imageEdgeInsets = UIEdgeInsetsMake(0, -8, 0, 0);
     [self.leftArrow addTarget:self action:@selector(navigationHandle:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.leftArrow];
     
     self.rightArrow = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.leftArrow setImage:[UIImage imageNamed:@"rightArrow"] forState:UIControlStateNormal];
-    self.rightArrow.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -8);
+    [self.rightArrow setImage:[UIImage imageNamed:@"rightArrow"] forState:UIControlStateNormal];
     [self.rightArrow addTarget:self action:@selector(navigationHandle:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.rightArrow];
     
@@ -275,7 +273,6 @@
             titleLayer.alignmentMode = kCAAlignmentCenter;
             titleLayer.string = titleString;
             titleLayer.truncationMode = kCATruncationEnd;
-            titleLayer.backgroundColor = [UIColor grayColor].CGColor;
             
             if (self.selectedSegmentIndex == idx) {
                 titleLayer.foregroundColor = self.selectedTextColor.CGColor;
@@ -510,15 +507,13 @@
 
 - (void)updateSegmentsRects {
     CGRect scrollFrame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
-    if (self.isNavigationEnabled) {
-        scrollFrame.origin.x += 23;
-        scrollFrame.size.width -= 46;
-    }
     self.scrollView.frame = scrollFrame;
     
     if (self.isNavigationEnabled) {
-        self.leftArrow.frame = CGRectMake(0, 0, self.leftArrow.imageView.image.size.width + 16, CGRectGetHeight(self.frame));
-        self.rightArrow.frame = CGRectMake(CGRectGetMaxX(scrollFrame), 0, self.rightArrow.imageView.image.size.width + 16, CGRectGetHeight(self.frame));
+        self.leftArrow.frame = CGRectMake(0, 0, CGRectGetHeight(self.frame), CGRectGetHeight(self.frame));
+        self.rightArrow.frame = CGRectMake(CGRectGetWidth(scrollFrame) - CGRectGetHeight(self.frame), 0, CGRectGetHeight(self.frame), CGRectGetHeight(self.frame));
+        self.leftArrow.imageEdgeInsets = UIEdgeInsetsMake(0, -(CGRectGetHeight(self.frame)-self.leftArrow.imageView.image.size.width), 0, 0);
+        self.rightArrow.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -(CGRectGetHeight(self.frame)-self.rightArrow.imageView.image.size.width));
     }
     
     // When `scrollEnabled` is set to YES, segment width will be automatically set to the width of the biggest segment's text or image,
