@@ -91,6 +91,7 @@
     self.segmentedControl4.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationUp;
     self.segmentedControl4.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleFull;
     self.segmentedControl4.navigationEnabled = YES;
+    self.segmentedControl4.textShadowEnabled = YES;
     
     self.segmentedControl4.tag = 3;
     

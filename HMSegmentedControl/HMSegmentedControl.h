@@ -141,6 +141,11 @@ typedef enum {
 @property(nonatomic, getter = isNavigationEnabled) BOOL navigationEnabled;
 
 /*
+ Default is NO. Set to YES to allow touch events by left or right arrow.
+ */
+@property(nonatomic, getter = isTextShadowEnabled) BOOL textShadowEnabled;
+
+/*
  Index of the currently selected segment.
  */
 @property (nonatomic, assign) NSInteger selectedSegmentIndex;

@@ -273,6 +273,13 @@
             titleLayer.alignmentMode = kCAAlignmentCenter;
             titleLayer.string = titleString;
             titleLayer.truncationMode = kCATruncationEnd;
+            if (self.isTextShadowEnabled) {
+                titleLayer.shouldRasterize = YES;
+                titleLayer.shadowColor = [[UIColor colorWithRed:0/255.0f green:0/255.0f blue:0/255.0f alpha:0.4f] CGColor];
+                titleLayer.shadowOpacity = 1.0f;
+                titleLayer.shadowRadius = 0.4f;
+                titleLayer.shadowOffset = CGSizeMake(0, -0.4f);
+            }
             
             if (self.selectedSegmentIndex == idx) {
                 titleLayer.foregroundColor = self.selectedTextColor.CGColor;
