@@ -26,6 +26,7 @@ typedef enum {
 typedef enum {
     HMSegmentedControlSegmentWidthStyleFixed, // Segment width is fixed
     HMSegmentedControlSegmentWidthStyleDynamic, // Segment width will only be as big as the text width (including inset)
+    HMSegmentedControlSegmentWidthStyleFull // Segment width will full width
 } HMSegmentedControlSegmentWidthStyle;
 
 enum {
@@ -65,7 +66,7 @@ typedef enum {
  */
 @property (nonatomic, strong) UIColor *textColor;
 
-/* 
+/*
  Text color for selected segment name when segmented control type is `HMSegmentedControlTypeText`
  
  Default is [UIColor blackColor]
@@ -85,13 +86,6 @@ typedef enum {
  Default is R:52, G:181, B:229
  */
 @property (nonatomic, strong) UIColor *selectionIndicatorColor;
-
-/*
- Opacity for the seletion inficator box.
- 
- Default is 0.2
- */
-@property (nonatomic) CGFloat selectionIndicatorBoxOpacity;
 
 /*
  Specifies the style of the control
@@ -141,6 +135,10 @@ typedef enum {
  */
 @property(nonatomic, getter = isTouchEnabled) BOOL touchEnabled;
 
+/*
+ Default is NO. Set to YES to allow touch events by left or right arrow.
+ */
+@property(nonatomic, getter = isNavigationEnabled) BOOL navigationEnabled;
 
 /*
  Index of the currently selected segment.
@@ -153,21 +151,6 @@ typedef enum {
  Default is 5.0
  */
 @property (nonatomic, readwrite) CGFloat selectionIndicatorHeight;
-
-/*
- Edge insets for the selection indicator.
- NOTE: This does not affect the bounding box of HMSegmentedControlSelectionStyleBox
- 
- When HMSegmentedControlSelectionIndicatorLocationUp is selected, bottom edge insets are not used
- 
- When HMSegmentedControlSelectionIndicatorLocationDown is selected, top edge insets are not used
- 
- Defaults are top: 0.0f
-             left: 0.0f
-           bottom: 0.0f
-            right: 0.0f
- */
-@property (nonatomic, readwrite) UIEdgeInsets selectionIndicatorEdgeInsets;
 
 /*
  Inset left and right edges of segments. Only effective when `scrollEnabled` is set to YES.
@@ -186,5 +169,5 @@ typedef enum {
 - (instancetype)initWithSectionImages:(NSArray *)sectionImages sectionSelectedImages:(NSArray *)sectionSelectedImages titlesForSections:(NSArray *)sectiontitles;
 - (void)setSelectedSegmentIndex:(NSUInteger)index animated:(BOOL)animated;
 - (void)setIndexChangeBlock:(IndexChangeBlock)indexChangeBlock;
-
+- (void)scrollToSelectedSegmentIndex;
 @end
