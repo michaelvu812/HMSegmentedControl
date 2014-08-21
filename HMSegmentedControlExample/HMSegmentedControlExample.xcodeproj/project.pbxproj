@@ -35,8 +35,7 @@
 		54F05AEF1689D34A0064FCE1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F05AEE1689D34A0064FCE1 /* Default-568h@2x.png */; };
 		54F05AF21689D34B0064FCE1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F05AF11689D34B0064FCE1 /* ViewController.m */; };
 		54F05B001689D38C0064FCE1 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F05AFF1689D38C0064FCE1 /* HMSegmentedControl.m */; };
-		F0AE433219A5D0B4009F2795 /* leftArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0AE433019A5D0B4009F2795 /* leftArrow@2x.png */; };
-		F0AE433319A5D0B4009F2795 /* rightArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0AE433119A5D0B4009F2795 /* rightArrow@2x.png */; };
+		F0AE433519A5D8EE009F2795 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = F0AE433419A5D8EE009F2795 /* Resources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,8 +73,7 @@
 		54F05AFB1689D3650064FCE1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		54F05AFE1689D38C0064FCE1 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		54F05AFF1689D38C0064FCE1 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
-		F0AE433019A5D0B4009F2795 /* leftArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leftArrow@2x.png"; sourceTree = "<group>"; };
-		F0AE433119A5D0B4009F2795 /* rightArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightArrow@2x.png"; sourceTree = "<group>"; };
+		F0AE433419A5D8EE009F2795 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +150,7 @@
 		54F05AFD1689D38C0064FCE1 /* HMSegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
-				F0AE432F19A5D08E009F2795 /* Resources */,
+				F0AE433419A5D8EE009F2795 /* Resources */,
 				54F05AFE1689D38C0064FCE1 /* HMSegmentedControl.h */,
 				54F05AFF1689D38C0064FCE1 /* HMSegmentedControl.m */,
 			);
@@ -182,15 +180,6 @@
 			);
 			name = Images;
 			path = "发送页面按钮";
-			sourceTree = "<group>";
-		};
-		F0AE432F19A5D08E009F2795 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F0AE433019A5D0B4009F2795 /* leftArrow@2x.png */,
-				F0AE433119A5D0B4009F2795 /* rightArrow@2x.png */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +238,7 @@
 				54F05AED1689D34A0064FCE1 /* Default@2x.png in Resources */,
 				54F05AEF1689D34A0064FCE1 /* Default-568h@2x.png in Resources */,
 				54E531BE16B951AB005F17A1 /* 1-selected.png in Resources */,
+				F0AE433519A5D8EE009F2795 /* Resources in Resources */,
 				54E531BF16B951AB005F17A1 /* 1-selected@2x.png in Resources */,
 				54E531C016B951AB005F17A1 /* 1.png in Resources */,
 				54E531C116B951AB005F17A1 /* 1@2x.png in Resources */,
@@ -257,10 +247,8 @@
 				54E531C416B951AB005F17A1 /* 2.png in Resources */,
 				54E531C516B951AB005F17A1 /* 2@2x.png in Resources */,
 				54E531C616B951AB005F17A1 /* 3-selected.png in Resources */,
-				F0AE433319A5D0B4009F2795 /* rightArrow@2x.png in Resources */,
 				54E531C716B951AB005F17A1 /* 3-selected@2x.png in Resources */,
 				54E531C816B951AB005F17A1 /* 3.png in Resources */,
-				F0AE433219A5D0B4009F2795 /* leftArrow@2x.png in Resources */,
 				54E531C916B951AB005F17A1 /* 3@2x.png in Resources */,
 				54E531CA16B951AB005F17A1 /* 4-selected.png in Resources */,
 				54E531CB16B951AB005F17A1 /* 4-selected@2x.png in Resources */,
