@@ -275,11 +275,10 @@
             titleLayer.string = titleString;
             titleLayer.truncationMode = kCATruncationEnd;
             if (self.isTextShadowEnabled) {
-                titleLayer.shouldRasterize = YES;
-                titleLayer.shadowColor = [[UIColor colorWithRed:0/255.0f green:0/255.0f blue:0/255.0f alpha:0.4f] CGColor];
+                titleLayer.shadowColor = [[UIColor colorWithRed:0/255.0f green:0/255.0f blue:0/255.0f alpha:0.75f] CGColor];
                 titleLayer.shadowOpacity = 1.0f;
-                titleLayer.shadowRadius = 0.4f;
-                titleLayer.shadowOffset = CGSizeMake(0, -0.4f);
+                titleLayer.shadowRadius = 1.0f;
+                titleLayer.shadowOffset = CGSizeMake(0, -0.5f);
             }
             
             if (self.selectedSegmentIndex == idx) {
@@ -514,14 +513,14 @@
 }
 
 - (void)updateSegmentsRects {
-    CGRect scrollFrame = CGRectMake(self.padding, 0, CGRectGetWidth(self.frame) - (self.padding *2), CGRectGetHeight(self.frame));
+    CGRect scrollFrame = CGRectMake(fabsf(self.padding), 0, CGRectGetWidth(self.frame) - (fabsf(self.padding) *2), CGRectGetHeight(self.frame));
     self.scrollView.frame = scrollFrame;
     
     if (self.isNavigationEnabled) {
-        self.leftArrow.frame = CGRectMake(self.padding/2, 0, CGRectGetHeight(self.frame), CGRectGetHeight(self.frame));
-        self.rightArrow.frame = CGRectMake(CGRectGetWidth(self.frame) - CGRectGetHeight(self.frame) - self.padding/2, 0, CGRectGetHeight(self.frame), CGRectGetHeight(self.frame));
-        self.leftArrow.imageEdgeInsets = UIEdgeInsetsMake(0, (self.padding > 0 ? -self.padding/2 : 0), 0, 0);
-        self.rightArrow.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, (self.padding > 0 ? -self.padding/2 : 0));
+        self.leftArrow.frame = CGRectMake(0, 0, CGRectGetHeight(self.frame) + fabsf(self.padding), CGRectGetHeight(self.frame));
+        self.rightArrow.frame = CGRectMake(CGRectGetWidth(self.frame) - (CGRectGetHeight(self.frame) + fabsf(self.padding)), 0, CGRectGetHeight(self.frame) + fabsf(self.padding), CGRectGetHeight(self.frame));
+        self.leftArrow.imageEdgeInsets = UIEdgeInsetsMake(0, -(fabsf(self.padding) - self.leftArrow.imageView.image.size.width), 0, 0);
+        self.rightArrow.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -(fabsf(self.padding) - self.rightArrow.imageView.image.size.width));
     }
     
     // When `scrollEnabled` is set to YES, segment width will be automatically set to the width of the biggest segment's text or image,
