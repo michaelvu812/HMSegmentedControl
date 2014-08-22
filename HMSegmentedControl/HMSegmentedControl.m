@@ -137,11 +137,13 @@
     self.leftArrow = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.leftArrow setImage:[UIImage imageNamed:@"leftArrow"] forState:UIControlStateNormal];
     [self.leftArrow addTarget:self action:@selector(navigationHandle:) forControlEvents:UIControlEventTouchUpInside];
+    self.leftArrow.backgroundColor = [UIColor greenColor];
     [self addSubview:self.leftArrow];
     
     self.rightArrow = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.rightArrow setImage:[UIImage imageNamed:@"rightArrow"] forState:UIControlStateNormal];
     [self.rightArrow addTarget:self action:@selector(navigationHandle:) forControlEvents:UIControlEventTouchUpInside];
+    self.rightArrow.backgroundColor = [UIColor greenColor];
     [self addSubview:self.rightArrow];
     
     self.font = [UIFont fontWithName:@"STHeitiSC-Light" size:18.0f];
@@ -160,6 +162,7 @@
     self.userDraggable = YES;
     self.touchEnabled = YES;
     self.type = HMSegmentedControlTypeText;
+    self.padding = 0;
     
     self.shouldAnimateUserSelection = YES;
     
@@ -513,14 +516,14 @@
 }
 
 - (void)updateSegmentsRects {
-    CGRect scrollFrame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
+    CGRect scrollFrame = CGRectMake(self.padding, 0, CGRectGetWidth(self.frame) - (self.padding *2), CGRectGetHeight(self.frame));
     self.scrollView.frame = scrollFrame;
     
     if (self.isNavigationEnabled) {
-        self.leftArrow.frame = CGRectMake(0, 0, CGRectGetHeight(self.frame), CGRectGetHeight(self.frame));
-        self.rightArrow.frame = CGRectMake(CGRectGetWidth(scrollFrame) - CGRectGetHeight(self.frame), 0, CGRectGetHeight(self.frame), CGRectGetHeight(self.frame));
-        self.leftArrow.imageEdgeInsets = UIEdgeInsetsMake(0, -(CGRectGetHeight(self.frame)-self.leftArrow.imageView.image.size.width), 0, 0);
-        self.rightArrow.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -(CGRectGetHeight(self.frame)-self.rightArrow.imageView.image.size.width));
+        self.leftArrow.frame = CGRectMake(self.padding/2, 0, CGRectGetHeight(self.frame), CGRectGetHeight(self.frame));
+        self.rightArrow.frame = CGRectMake(CGRectGetWidth(self.frame) - CGRectGetHeight(self.frame) - self.padding/2, 0, CGRectGetHeight(self.frame), CGRectGetHeight(self.frame));
+        self.leftArrow.imageEdgeInsets = UIEdgeInsetsMake(0, (self.padding > 0 ? -self.padding/2 : 0), 0, 0);
+        self.rightArrow.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, (self.padding > 0 ? -self.padding/2 : 0));
     }
     
     // When `scrollEnabled` is set to YES, segment width will be automatically set to the width of the biggest segment's text or image,
@@ -530,7 +533,7 @@
     }
     
     if (self.segmentWidthStyle == HMSegmentedControlSegmentWidthStyleFull) {
-        self.segmentWidth = self.frame.size.width;
+        self.segmentWidth = self.scrollView.frame.size.width;
     } else if (self.type == HMSegmentedControlTypeText && self.segmentWidthStyle == HMSegmentedControlSegmentWidthStyleFixed) {
         for (NSString *titleString in self.sectionTitles) {
 #if  __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
@@ -667,7 +670,7 @@
                                           self.segmentWidth,
                                           self.frame.size.height);
         
-        selectedSegmentOffset = (CGRectGetWidth(self.frame) / 2) - (self.segmentWidth / 2);
+        selectedSegmentOffset = (CGRectGetWidth(self.scrollView.frame) / 2) - (self.segmentWidth / 2);
     } else if (self.segmentWidthStyle == HMSegmentedControlSegmentWidthStyleDynamic) {
         NSInteger i = 0;
         CGFloat offsetter = 0;

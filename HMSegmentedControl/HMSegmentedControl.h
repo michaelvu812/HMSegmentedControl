@@ -169,6 +169,13 @@ typedef enum {
  */
 @property (nonatomic) BOOL shouldAnimateUserSelection;
 
+/*
+ Padding left and right of segment control
+ 
+ Default is 0
+ */
+@property (nonatomic, readwrite) CGFloat padding;
+
 - (id)initWithSectionTitles:(NSArray *)sectiontitles;
 - (id)initWithSectionImages:(NSArray *)sectionImages sectionSelectedImages:(NSArray *)sectionSelectedImages;
 - (instancetype)initWithSectionImages:(NSArray *)sectionImages sectionSelectedImages:(NSArray *)sectionSelectedImages titlesForSections:(NSArray *)sectiontitles;
