@@ -137,13 +137,11 @@
     self.leftArrow = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.leftArrow setImage:[UIImage imageNamed:@"leftArrow"] forState:UIControlStateNormal];
     [self.leftArrow addTarget:self action:@selector(navigationHandle:) forControlEvents:UIControlEventTouchUpInside];
-    self.leftArrow.backgroundColor = [UIColor greenColor];
     [self addSubview:self.leftArrow];
     
     self.rightArrow = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.rightArrow setImage:[UIImage imageNamed:@"rightArrow"] forState:UIControlStateNormal];
     [self.rightArrow addTarget:self action:@selector(navigationHandle:) forControlEvents:UIControlEventTouchUpInside];
-    self.rightArrow.backgroundColor = [UIColor greenColor];
     [self addSubview:self.rightArrow];
     
     self.font = [UIFont fontWithName:@"STHeitiSC-Light" size:18.0f];
